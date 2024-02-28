@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: full-stack-app
+spec:
+  replicas: 3  # Adjust as needed
+  selector:
+    matchLabels:
+      app: full-stack-app
+  template:
+    metadata:
+      labels:
+        app: full-stack-app
+    spec:
+      containers:
+      - name: full-stack-app
+        image: bharathmgowda/flask-react-app:latest
+        ports:
+        - containerPort: 5000  # Port for the backend
